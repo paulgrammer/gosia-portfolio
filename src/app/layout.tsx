@@ -1,13 +1,16 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import PrelineScript from "./components/PrelineScript";
+import { NavLinks, linkToCV } from "./data/links";
+import { details } from "./data/details";
+import Link from "next/link";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Małgorzata Czopik",
-  description: "My portfolio",
+  title: details.name,
+  description: details.decription,
 };
 
 export default function RootLayout({
@@ -25,10 +28,13 @@ export default function RootLayout({
             aria-label="Global"
           >
             <div className="flex items-center justify-between">
-              <div className="flex-none font-semibold dark:text-white dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">
-                <div className="text-xl">Małgorzata Czopik</div>
-                <div className="text-xs text-gray-500">mialgorzatka@tlen.pl</div>
-              </div>
+              <Link
+                href="/"
+                className="flex-none font-semibold dark:text-white dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+              >
+                <div className="text-xl">{details.name}</div>
+                <div className="text-xs text-gray-500">{details.email}</div>
+              </Link>
               <div className="md:hidden">
                 <button
                   type="button"
@@ -78,33 +84,27 @@ export default function RootLayout({
               <div className="flex flex-col gap-y-4 gap-x-0 mt-5 md:flex-row md:items-center md:justify-end md:gap-y-0 md:gap-x-7 md:mt-0 md:ps-7">
                 <a
                   className="font-medium text-blue-600 md:py-6 dark:text-blue-500 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-                  href="#"
+                  href="/"
                   aria-current="page"
                 >
                   Portfolio
                 </a>
-                <a
-                  className="font-medium text-gray-500 hover:text-gray-400 md:py-6 dark:text-gray-400 dark:hover:text-gray-500 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-                  href="#"
-                >
-                  Figma
-                </a>
-                <a
-                  className="font-medium text-gray-500 hover:text-gray-400 md:py-6 dark:text-gray-400 dark:hover:text-gray-500 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-                  href="#"
-                >
-                  LinkedIn
-                </a>
-                <a
-                  className="font-medium text-gray-500 hover:text-gray-400 md:py-6 dark:text-gray-400 dark:hover:text-gray-500 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-                  href="#"
-                >
-                  Dribble
-                </a>
+
+                {NavLinks.map((navlink, idx) => (
+                  <a
+                    key={idx}
+                    target="_blank"
+                    className="font-medium text-gray-500 hover:text-gray-400 md:py-6 dark:text-gray-400 dark:hover:text-gray-500 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                    href={navlink.href}
+                  >
+                    {navlink.name}
+                  </a>
+                ))}
 
                 <div className="md:border-s md:border-gray-300 md:ps-6 dark:border-gray-700">
                   <a
-                    href="#"
+                    target="_blank"
+                    href={linkToCV}
                     className="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
                   >
                     Download CV
