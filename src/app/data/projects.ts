@@ -55,20 +55,43 @@ export const projects: Project[] = [
     ],
   },
   {
-    title: "Appointments",
+    title: "Appointment Scheduling",
     description:
-      "Use automation to scale campaigns profitably and save time doing it.",
+      "Event Scheduling Service for the company",
     resources: [
       {
-        desktop: "https://preline.co/assets/img/mockups/img12.jpg",
-        mobile: "https://preline.co/assets/img/mockups/img13.jpg",
+        desktop: "/scheduling/scheduling-1-desktop.png",
+        mobile: "/scheduling/scheduling-1-mobile.png",
+      },
+      {
+        desktop: "/scheduling/scheduling-2-desktop.png",
+        mobile: "/scheduling/scheduling-2-mobile.png",
+      },
+      {
+        desktop: "/scheduling/scheduling-3-desktop.png",
+      },
+      {
+        desktop: "/scheduling/scheduling-4-desktop.png",
+        mobile: "/scheduling/scheduling-4-mobile.png",
+      },
+      {
+        desktop: "/scheduling/scheduling-5-desktop.png",
+        mobile: "/scheduling/scheduling-5-mobile.png",
+      },
+      {
+        desktop: "/scheduling/scheduling-6-desktop.png",
+        mobile: "/scheduling/scheduling-6-mobile.png",
+      },
+      {
+        desktop: "/scheduling/scheduling-7-desktop.png",
+        mobile: "/scheduling/scheduling-7-mobile.png",
       },
     ],
   },
   {
-    title: "Appointments",
+    title: "Payments",
     description:
-      "Use automation to scale campaigns profitably and save time doing it.",
+      "Payments Integration Service for the company",
     resources: [
       {
         desktop: "https://preline.co/assets/img/mockups/img12.jpg",
