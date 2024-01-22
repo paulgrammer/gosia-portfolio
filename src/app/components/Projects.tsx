@@ -51,6 +51,7 @@ export default function Projects() {
 
             return (
               <div
+                key={idx}
                 role="tabpanel"
                 id={`tabs-with-card-${idx}`}
                 className={idx !== 0 ? "hidden" : ""}
