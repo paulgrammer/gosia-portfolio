@@ -12,7 +12,8 @@ type Project = {
 export const projects: Project[] = [
   {
     title: "Axon Education System",
-    description: "An online language learning platform with virtual appointments.",
+    description:
+      "An online language learning platform with virtual appointments.",
     resources: [
       {
         desktop: "/axon/axon-login-desktop.png",
@@ -55,9 +56,8 @@ export const projects: Project[] = [
     ],
   },
   {
-    title: "Appointment Scheduling",
-    description:
-      "Event Scheduling Service for the company",
+    title: "Scheduling",
+    description: "Event Scheduling Service for the company",
     resources: [
       {
         desktop: "/scheduling/scheduling-1-desktop.png",
@@ -90,12 +90,23 @@ export const projects: Project[] = [
   },
   {
     title: "Payments",
-    description:
-      "Payments Integration Service for the company",
+    description: "Payments Integration Service for the company",
     resources: [
       {
-        desktop: "https://preline.co/assets/img/mockups/img12.jpg",
-        mobile: "https://preline.co/assets/img/mockups/img13.jpg",
+        desktop: "/payments/payment-1-desktop.png",
+        mobile: "/payments/payment-1-mobile.png",
+      },
+      {
+        desktop: "/payments/payment-2-desktop.png",
+        mobile: "/payments/payment-2-mobile.png",
+      },
+      {
+        desktop: "/payments/payment-3-desktop.png",
+        mobile: "/payments/payment-3-mobile.png",
+      },
+      {
+        desktop: "/payments/payment-4-desktop.png",
+        mobile: "/payments/payment-4-mobile.png",
       },
     ],
   },
