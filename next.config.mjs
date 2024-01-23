@@ -3,8 +3,9 @@ const nextConfig = {
   i18n: {
     locales: ["en-US", "pl"],
     defaultLocale: "en-US",
-    localeDetection: true,
+    localeDetection: false,
   },
+  trailingSlash: false,
 };
 
 export default nextConfig;

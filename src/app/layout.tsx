@@ -4,7 +4,7 @@ import PrelineScript from "./components/PrelineScript";
 import { NavLinks, linkToCV } from "./data/links";
 import { details } from "./data/details";
 import Link from "next/link";
-import "./globals.css";
+import "./globals.css";;
 
 const inter = Inter({ subsets: ["latin"] });
 

@@ -1,4 +1,5 @@
 "use client";
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import { projects } from "@/app/data/projects";
@@ -10,7 +11,7 @@ export default function Projects() {
     <div className="max-w-[85rem]">
       {/* Tab Nav */}
       <nav
-        className="max-w-6xl mx-auto grid sm:flex gap-y-px sm:gap-y-0 sm:gap-x-4"
+        className="max-w-6xl mx-auto grid sm:flex gap-y-4 sm:gap-y-0 sm:gap-x-4"
         aria-label="Tabs"
         role="tablist"
       >
@@ -22,7 +23,7 @@ export default function Projects() {
               type="button"
               className={`${
                 idx === 0 ? `active` : ""
-              } bg-gray-200 shadow-md hs-tab-active:bg-gray-100 hs-tab-active:hover:border-transparent w-full flex flex-col text-start hover:bg-gray-100 p-3 md:p-5 rounded-xl dark:hs-tab-active:bg-white/[.05] dark:hover:bg-gray-700 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600`}
+              } bg-gray-200 dark:bg-gray-700 shadow-md hs-tab-active:bg-gray-100 hs-tab-active:hover:border-transparent w-full flex flex-col text-start hover:bg-gray-100 p-3 md:p-5 rounded-xl dark:hs-tab-active:bg-white/[.05] dark:hover:bg-gray-700 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600`}
               id={`tabs-with-card-item-${idx}`}
               data-hs-tab={tab}
               aria-controls={tab}
