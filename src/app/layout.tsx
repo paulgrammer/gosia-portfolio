@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import ThemSwitch from "./components/ThemeSwitch";
 import PrelineScript from "./components/PrelineScript";
 import { NavLinks, linkToCV } from "./data/links";
 import { details } from "./data/details";
+
 import Link from "next/link";
-import "./globals.css";;
+import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,9 +20,11 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const pathname = "/";
+
   return (
     <html lang="en">
-      <body className={`${inter.className} dark:bg-slate-900 min-h-[75rem]`}>
+      <body className={`${inter.className} dark:bg-slate-900 bg-main`}>
         {/* ========== HEADER ========== */}
         <header className="sticky top-4 inset-x-0 flex flex-wrap md:justify-start md:flex-nowrap z-50 w-full text-sm">
           <nav
@@ -30,9 +34,11 @@ export default function RootLayout({
             <div className="flex items-center justify-between">
               <Link
                 href="/"
-                className="flex-none font-semibold dark:text-white dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                className="flex-none font-semibold dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
               >
-                <div className="text-xl">{details.name}</div>
+                <div className="text-xl text-gray-800 dark:text-neutral-50">
+                  {details.name}
+                </div>
                 <div className="text-xs text-gray-500">{details.email}</div>
               </Link>
               <div className="md:hidden">
@@ -82,30 +88,28 @@ export default function RootLayout({
               className="hs-collapse hidden overflow-hidden transition-all duration-300 basis-full grow md:block"
             >
               <div className="flex flex-col gap-y-4 gap-x-0 mt-5 md:flex-row md:items-center md:justify-end md:gap-y-0 md:gap-x-7 md:mt-0 md:ps-7">
-                <a
-                  className="font-medium text-blue-600 md:py-6 dark:text-blue-500 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-                  href="/"
-                  aria-current="page"
-                >
-                  Portfolio
-                </a>
-
                 {NavLinks.map((navlink, idx) => (
-                  <a
+                  <Link
                     key={idx}
-                    target="_blank"
-                    className="font-medium text-gray-500 hover:text-gray-400 md:py-6 dark:text-gray-400 dark:hover:text-gray-500 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                    target={navlink.target}
+                    className={`${
+                      pathname === navlink.href
+                        ? "text-blue-600 dark:text-blue-500"
+                        : "text-gray-500 dark:text-gray-400"
+                    } font-medium  hover:text-gray-400 md:py-6 dark:hover:text-gray-500 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600`}
                     href={navlink.href}
                   >
                     {navlink.name}
-                  </a>
+                  </Link>
                 ))}
+
+                <ThemSwitch />
 
                 <div className="md:border-s md:border-gray-300 md:ps-6 dark:border-gray-700">
                   <a
                     target="_blank"
                     href={linkToCV}
-                    className="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                    className="select-none py-3 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
                   >
                     Download CV
                     <svg

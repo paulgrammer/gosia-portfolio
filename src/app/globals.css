@@ -17,17 +17,31 @@
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
       transparent,
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+  color: rgb(var(--foreground-rgb));
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  .bg-light {
+    background: url("/light_background.png") no-repeat;
+    background-size: cover;
+  }
+
+  .bg-dark {
+    background: url("/dark_background.png") no-repeat;
+    background-size: cover;
+  }
+
+  .bg-main {
+    @apply bg-light dark:bg-dark
   }
 }

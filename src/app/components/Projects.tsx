@@ -1,8 +1,8 @@
 "use client";
-
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
 import { projects } from "@/app/data/projects";
+import { Navigation } from "swiper/modules";
+import Image from "next/image";
 import "swiper/css";
 import "swiper/css/navigation";
 
@@ -23,16 +23,16 @@ export default function Projects() {
               type="button"
               className={`${
                 idx === 0 ? `active` : ""
-              } bg-gray-200 dark:bg-gray-700 shadow-md hs-tab-active:bg-gray-100 hs-tab-active:hover:border-transparent w-full flex flex-col text-start hover:bg-gray-100 p-3 md:p-5 rounded-xl dark:hs-tab-active:bg-white/[.05] dark:hover:bg-gray-700 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600`}
+              } bg-gray-200 dark:bg-gray-700 shadow-md hs-tab-active:bg-gray-100 hs-tab-active:hover:border-transparent w-full flex flex-col text-start hover:bg-gray-100 p-3 md:p-5 rounded-xl dark:hs-tab-active:bg-gray-400 dark:hover:bg-gray-700 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600`}
               id={`tabs-with-card-item-${idx}`}
               data-hs-tab={tab}
               aria-controls={tab}
               role="tab"
             >
-              <span className="hs-tab-active:text-blue-600 block font-semibold text-gray-800 dark:hs-tab-active:text-blue-500 dark:text-gray-200">
+              <span className="hs-tab-active:text-blue-600 block font-semibold text-gray-800 dark:hs-tab-active:text-neutral-800  dark:text-gray-200">
                 {project.title}
               </span>
-              <span className="hidden lg:block mt-2 text-gray-800 dark:text-gray-200">
+              <span className="hidden lg:block mt-2 text-gray-800 dark:text-gray-200 hs-tab-active:dark:text-gray-700">
                 {project.description}
               </span>
             </button>
@@ -53,6 +53,7 @@ export default function Projects() {
             >
               <Swiper
                 navigation
+                lazyPreloadPrevNext={10}
                 spaceBetween={50}
                 slidesPerView={1}
                 modules={[Navigation]}
