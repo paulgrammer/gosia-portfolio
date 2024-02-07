@@ -1,5 +1,5 @@
-import Projects from "./components/Projects";
+import UxUiProjects from "./components/UxUiProjects";
 
 export default function Home() {
-  return <Projects />;
+  return <UxUiProjects />;
 }

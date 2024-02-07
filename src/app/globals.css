@@ -26,6 +26,12 @@ body {
   color: rgb(var(--foreground-rgb));
 }
 
+@layer components {
+  ::-webkit-scrollbar {
+    @apply w-0
+  }
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;

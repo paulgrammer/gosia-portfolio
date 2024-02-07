@@ -20,7 +20,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const pathname = "/";
+  const pathname = "/active path here";
 
   return (
     <html lang="en">
@@ -36,7 +36,7 @@ export default function RootLayout({
                 href="/"
                 className="flex-none font-semibold dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
               >
-                <div className="text-xl text-gray-800 dark:text-neutral-50">
+                <div className="text-xl text-blue-600 dark:text-blue-500">
                   {details.name}
                 </div>
                 <div className="text-xs text-gray-500">{details.email}</div>
@@ -106,28 +106,52 @@ export default function RootLayout({
                 <ThemSwitch />
 
                 <div className="md:border-s md:border-gray-300 md:ps-6 dark:border-gray-700">
-                  <a
-                    target="_blank"
-                    href={linkToCV}
-                    className="select-none py-3 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-                  >
-                    Download CV
-                    <svg
-                      className="flex-shrink-0 w-4 h-4"
-                      fill="none"
-                      strokeWidth={1.5}
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                      aria-hidden="true"
+                  <div className="hs-dropdown relative inline-flex [--placement:bottom-right]">
+                    <button
+                      id="hs-dropright"
+                      type="button"
+                      className="hs-dropdown-toggle select-none py-3 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
                     >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3"
-                      />
-                    </svg>
-                  </a>
+                      Download CV
+                      <svg
+                        className="flex-shrink-0 w-4 h-4"
+                        fill="none"
+                        strokeWidth={1.5}
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                        aria-hidden="true"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3"
+                        />
+                      </svg>
+                    </button>
+
+                    <div
+                      className="hs-dropdown-menu w-72 transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 hidden z-10 bg-white shadow-md rounded-lg p-2 dark:bg-gray-800 dark:border dark:border-gray-700 dark:divide-gray-700"
+                      aria-labelledby="hs-dropright"
+                    >
+                      <a
+                        target="_blank"
+                        href="/cv/pl.pdf"
+                        download={`${details.name} CV - Polish`}
+                        className="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300 dark:focus:bg-gray-700"
+                      >
+                        Polish Version
+                      </a>
+                      <a
+                        target="_blank"
+                        href="/cv/en.pdf"
+                        download={`${details.name} CV - English`}
+                        className="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300 dark:focus:bg-gray-700"
+                      >
+                        English Version
+                      </a>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
