@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import ThemSwitch from "./components/ThemeSwitch";
 import PrelineScript from "./components/PrelineScript";
-import { NavLinks, linkToCV } from "./data/links";
+import { Analytics } from "@vercel/analytics/react";
+import { NavLinks } from "./data/links";
 import { details } from "./data/details";
 
 import Link from "next/link";
@@ -25,6 +26,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} dark:bg-slate-900 bg-main`}>
+        <Analytics />
+
         {/* ========== HEADER ========== */}
         <header className="sticky top-4 inset-x-0 flex flex-wrap md:justify-start md:flex-nowrap z-50 w-full text-sm">
           <nav
